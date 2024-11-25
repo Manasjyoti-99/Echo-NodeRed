@@ -1,2 +1,2 @@
 # Echo-NodeRed
-An ultrasonic sensor circuit to measure the distance of an object is created using the HC-SR04 sensor and esp8266 in Node MCU, written in Arduino C language. The circuit gathers data from the environment and publishes it to the Node-Red Dashboard through a HiveMQ MQTT Broker server.
+An ultrasonic sensor circuit to measure the distance of an object and provide visual feedback through LEDs is created using the HC-SR04 sensor and esp8266 in Node MCU, written in Arduino C language. The circuit gathers data from the environment, provides visual feedback via LEDs, and publishes it on the Node-Red Dashboard through a HiveMQ MQTT Broker server, enabling real-time monitoring or control through an IoT interface.
