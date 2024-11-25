@@ -2,9 +2,10 @@
 #include <PubSubClient.h>
 #define TRIG_PIN D1
 #define ECHO_PIN D2
+#define LED_PIN D0
 
-const char* ssid = "vivo V27";         // Your WiFi SSID
-const char* password = "12345678"; // Your WiFi password
+const char* ssid = "Galaxy F22 93DB";         // Your WiFi SSID
+const char* password = "nvhv9317"; // Your WiFi password
 const char* mqtt_server = "broker.hivemq.com"; // MQTT broker (example)
 const char* topic = "echo/value";
 
@@ -15,6 +16,7 @@ void setup() {
   Serial.begin(115200);
   pinMode(TRIG_PIN, OUTPUT);
   pinMode(ECHO_PIN, INPUT);
+  pinMode(LED_PIN, OUTPUT);
 
   // Connect to WiFi
   WiFi.begin(ssid, password);
@@ -45,6 +47,12 @@ void loop() {
   Serial.print(distance);
   Serial.println(" cm");
   delay(1000); 
+
+  if (distance < 5){
+    digitalWrite(LED_PIN, HIGH);
+  } else {
+    digitalWrite(LED_PIN, LOW);
+  }
 
   String message = String(distance);
   client.publish(topic, message.c_str());
